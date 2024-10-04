@@ -1,1 +1,204 @@
-# EightBitSaxLounge.Composer
+# EightBitSaxLounge.Composer.Mxl
+## Overview
+Covert an mxl score.xml in some style to EightBitSaxLounge style. This includes converting key to relative minor, reducing tempo, adjusting number of concurrent voices to match hardware constraints. Also add chord text annotations to the score.
+
+## Development Plan
+1. Read in mxl score.xml
+    - This is a typical xml with music xml formatting - use standard xml parser
+    - Pop up a file dialog to select the file
+2. Convert score.xml to logical objects
+    - We are only interested in certain elements of the score.xml
+      - e.g. measure, note, key, tempo text, etc.
+3. Convert logical objects to EightBitSaxLounge style
+    - Iterate over a measures notes and limit to 3 concurrent notes
+    - Iterate over a measures notes and convert to relative minor
+    - Adjust measure tempo to 120 bpm
+    - Split measure in half if even time signature add chord annotations above measure parts
+4. Build EightBitSaxLounge score.xml
+    - new xml built from original xml and converted elements
+5. Write EightBitSaxLounge score.xml
+    - write the output xml to a file
+
+## Logic
+- Program
+    - Logic:
+      - Program should just set how we take a file and then provide it to the conversion logic
+    - Methods:
+      - Main
+        - Request filepath of mxl score.xml
+        - MxlConverter.Convert(filepath)
+            - Read in mxl score.xml
+            - Convert score.xml to logical objects
+            - Convert logical objects to EightBitSaxLounge style
+            - Build EightBitSaxLounge score.xml
+            - Write EightBitSaxLounge score.xml
+- MxlConverter
+    - Logic:
+      - This should take some score.mxl and convert to a new style
+    - Methods:
+      - Convert(filepath)
+        - Ingest xml file
+        - Parse xml file
+        - Convert xml to new style
+        - Write new xml file at filepath dir
+- MxlComposition
+    - Logic:
+      - The entire xml object of score.xml
+      - Generally we just want to covert certain parts of the xml and leave the rest alone
+    - Properties:
+      - MxlScore - the score-partwise element of the xml
+- MxlScore - e.g. <score-partwise version="4.0">
+    - Logic:
+      - a score-partwise object contains parts e.g. piano, drumkit etc
+      - it also contains lots of info e.g. title, credits etc that we don't care about
+      - there's a part-list element that defines parts attributes
+        - for each part in part-list there should be a part element that holds most of the 'music' elements we are interested in
+    - Properties:
+      - Parts - list of part xml elements within the score-partwise element
+        - `<part-list>`
+- MxlPart - e.g. <score-part id="P1">
+    - Logic:
+      - a part element contains measures, generally leave these alone
+      - must pull part-name from matching part-list.score-part.id, this way we can convert parts based on their intrinsic logic e.g. converting piano vs. drumkit
+    - Properties:
+        - Measures - list of measure xml elements within the score-part element
+        - PartName - the name of the part, find part-list.score-part.id matching part.id, then get score-part.part-name
+- MxlMeasure - e.g. <measure number="1" width="412.83">
+    - Logic:
+      - contains text and tempo in direction elements - order matters
+        - we need to create a new direction element for each chord annotations, only each half of the measure
+        - word directions are placed on a y offset inline with the notes e.g. direction1, notes part 1, direction2, notes part 2
+      - contains notes which we need to convert to relative minor
+      - generally need to take a list of notes, convert, then replace the notes in the measure element
+      - the key is in measure.attributes.key.fifths, following circle of fifths logic e.g. 0 = C
+        - don't change this, rather take this to determine converstion logic
+      - use MxlAnalyzer to determine chord for each part based on key and beatType
+    - Properties:
+        - Number - the number attribute of the measure element
+        - Notes - list of note xml elements within the measure element
+        - Key - the key xml element within the measure element
+        - int beatType - note type in time signature e.g. 4 = quarter note
+        - int beatCount - measure.attributes.time.beats, only when time changes so may only be in measure 1
+        - MxlDirection tempoDirection - direction element setting the tempo, only required once per tempo change (descope for now)
+        - List<MeasurePart> MxlMeasureParts - list of measure parts, each part contains notes and a direction element
+- MxlMeasurePart
+  - Logic:
+    - mxl defines music in the order it's written in the xml file, split measures parts with ordered elements
+    - once rendered back to xml the order will be direction, note, note, ..., note
+    - limiting annotation of chords to twice per measure - so split measure in half if possible, if e.g. 3/4 then only one part
+    - firstly limit notes to three at once - use metronome
+  - Properties:
+    - Chord - from list of notes determine chord
+    - Notes - list of note xml elements within the measure part element
+    - MxlDirection chordDirection - the direction element setting chord annotation above measure part
+  - Methods:
+    - Convert
+        - move through duration with notes and remove > 3 notes
+          - favour removing the fifth or root
+          - don't remove bass or melody notes
+          - never remove the third unless doubled
+- MxlDirection e.g. <direction placement="above">
+    - Logic:
+      - a direction element typically sets placement of text in measures, but can also trigger an action e.g. setting tempo
+      - a new direction not in the original xml will be added for each chord annotation, so this needs to be built here
+      - converting tempo should just take the existing tempo xml element and set the value
+    - Properties:
+        - type - e.g. chord or tempo
+    - Methods:
+        - MxlDirection - xml
+        - Convert - each MxlDirectionType has its own conversion logic
+            - Tempo - set the tempo value in existing xml element
+            - Chord - update text to new chord value
+- MxlDirectionTypes - enum of direction options
+    - Properties:
+        - Chord - chord annotation
+        - Tempo - setting tempo
+- MxlNote
+  - Logic:
+    - note elements in order form musical progression
+    - a note has either a pitch or a rest element
+      - <rest/>
+      - <pitch>
+        - <step> - note name e.g. C
+        - <alter> - -1 = flat, 0 = natural, 1 = sharp
+        - <octave> - octave number
+    - capture duration for analysis e.g. chord determination
+    - a chord element within a note joins that note to the previous note to form a chord
+      - the first note forming a chord does not have a chord element
+  - Properties:
+    - MxlPitch Pitch - the pitch xml element within the note element, null if rest
+    - Duration - the duration relative to measure divisions e.g. divisions = 12, quarter note duration = 12
+    - Chord - the chord xml element within the note element
+    - Beat - the beat number of the note within the measure e.g. 4/4 has 4 beat locations
+    - DownBeat - true if the note is on a downbeat
+  - Methods:
+    - Convert
+        - pitch.step to relative minor
+        - pitch.alter removed potentially
+        - pitch.octave lowered potentially
+        - note.accidental left alone, these are chromatic
+- MxlPitch
+  - Logic:
+    - a pitch element contains the note name, octave and alteration
+  - Properties:
+    - Step - letter pitch A-G
+    - Alter - flat/sharp a note e.g. -1 = flat, 0 = natural, 1 = sharp
+    - Octave - int value for octave containing note
+- MxlMetronome
+    - Logic:
+        - keep track of location in measure based on progression through notes
+        - helps with chord determination and splitting measures
+        - the attributes are within a measure, but only on a change, so this retains info across measures
+        - location is determined by measure.attributes.divisions and measure.attributes.time
+        - increment location by note duration
+        - a note with e.g. duration 12 in measure with divisions 12 is one full beat
+        - track current beat
+        - after beats total reset to location 0, beat 1
+    - Properties:
+        - int Location - current location in measure
+        - int BeatType - note type in time signature e.g. 4 = quarter note
+        - int BeatCount - beats in measure
+        - int Key - 0 = C, 1 = G, 2 = D, etc.
+    - Methods:
+        - IncrementLocation(int duration) - increment location by note duration
+        - ResetLocation() - reset location to 0, beat 1
+        - IncrementBeat() - increment beat by 1
+        - ResetBeat() - reset beat to 1
+- MxlAnalyzer
+    - Logic:
+      - this contains logic to analyze mxl xml elements
+    - Methods:
+      - GetChord(List<XmlNote> notes, Key key, int beatType) - determine chord from list of notes based on key
+        - set bass note
+        - set notes on down beats i.e. first note in beatType interval
+        - Logic:
+          - notes in bass and down beats strongly determine chord
+          - start with assuming bass note is chord root
+            - if it's repeated this strengthens hypothesis
+            - if third is present this strengthens hypothesis
+            - if fifth is present this strengthens hypothesis
+            - if root is repeated and third present -> set chord
+            - if root and third are present, but no fifth -> consider inversion
+          - inversions are also common i.e. bass note is not root
+            - determine potential chords and score them
+              - +2 if bass note is root
+              - +2 if third is present
+              - +1 if fifth is present
+              - set favourite as bass note chord
+              - for each note in notes on downbeats, any score higher than bass wins
+      - GetRelativeMinor(int key, XmlNote note)
+        - handling sharp/flat notes:
+          - if pitch is sharp/flat for key - alter = 1 or -1
+          - AND there is not accidental element
+          - if pitch is not sharp/flat for key alter is the same
+          - AND accidental element is present (sharp/flat/natural)
+          - maintain accidental element if present and makes sense
+        - scale = ScaleGenerator.GetScale(key)
+        - pitch = note.Pitch.Step
+        - pitchAlter = note.Pitch.Alter
+        - pitchReadable = pitch + pitchAlter(#,b,'')
+        - octave = note.Pitch.Octave
+        - scaleIndex = scale.IndexOf(pitchReadable)
+        - if scaleIndex < 2 - octave - 1, pitchReadable scaleIndex + 5
+        - if scaleIndex >= 2 - pitchReadable scaleIndex - 2
+        - update pitch accordingly

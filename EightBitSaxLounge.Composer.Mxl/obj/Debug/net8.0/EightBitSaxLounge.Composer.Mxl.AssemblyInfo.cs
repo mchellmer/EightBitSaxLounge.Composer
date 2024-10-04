@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EightBitSaxLounge.Composer.Mxl")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8a87ba62d59c9158d2e5f45209fb2b8677d950a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4f250ed102a7c9814082009ce1eae7377104bab")]
 [assembly: System.Reflection.AssemblyProductAttribute("EightBitSaxLounge.Composer.Mxl")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EightBitSaxLounge.Composer.Mxl")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

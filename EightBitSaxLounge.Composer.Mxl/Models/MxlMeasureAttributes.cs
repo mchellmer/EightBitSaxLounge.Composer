@@ -24,7 +24,7 @@ public class MxlMeasureAttributes
         var beatCountValue = XmlParser.GetValueFromElementChildByName(timeElement, "beats");
         BeatCount = beatCountValue != null ? int.Parse(beatCountValue) : BeatCount;
         
-        var divisionsValue = XmlParser.GetValueFromElementChildByName(xmlMeasure, "divisions");
+        var divisionsValue = XmlParser.GetValueFromElementChildByName(measureAttributesElement, "divisions");
         Divisions = divisionsValue != null ? int.Parse(divisionsValue) : Divisions;
     }
 }

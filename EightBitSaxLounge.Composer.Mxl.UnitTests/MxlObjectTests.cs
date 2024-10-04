@@ -1,31 +1,20 @@
-using System.Xml.Linq;
 using EightBitSaxLounge.Composer.Mxl.Models;
+using EightBitSaxLounge.Composer.Mxl.Models.Xml;
 using EightBitSaxLounge.Composer.Mxl.UnitTests.Models;
-using NUnit.Framework;
 
 namespace EightBitSaxLounge.Composer.Mxl.UnitTests
 {
     public class Tests
     {
-        private MxlDocument _mxlDocument;
-
-        private MxlMetronome _mxlMetronomeTest = new (1)
-        {
-            Location = 0,
-        };
-
-        private MxlMeasureAttributes _mxlMeasureAttributesTest = new ()
+        private static readonly MxlMeasureAttributes _mxlMeasureAttributesTest = new ()
         {
             BeatCount = 4,
             BeatType = 4,
             Key = 0,
+            Divisions = 1
         };
 
-        [SetUp]
-        public void Setup()
-        {
-            
-        }
+        private static readonly XmlElements _xmlPartlistPartsTest = XmlTestHelper.CreatePartlistPartsTest();
         
         [TestCase("Files/NotePitched.xml", "A", 4, 0, 24, null, 1, false)]
         [TestCase("Files/NoteSharp.xml", "A", 4, 1, 24, null, 1, false)]
@@ -54,6 +43,7 @@ namespace EightBitSaxLounge.Composer.Mxl.UnitTests
         [TestCase("Files/MeasureDoubleStaff.xml", new [] {0}, new [] {0}, 4)]
         [TestCase("Files/MeasureDoubleStaffChord.xml", new [] {0, 0}, new [] {0}, 4)]
         [TestCase("Files/MeasureDoubleStaffChordTransition.xml", new [] {0, 0, 2}, new [] {0}, 4)]
+        [TestCase("Files/MeasureDoubleStaffChordTransitionComplex.xml", new [] {0,0,0,0,1,1,1,2,3,3}, new [] {0,1,3}, 4)]
         public void MxlMetronome_ShouldUpdateLocationCorrectly(
             string filePath,
             int[] noteLocationsStaff1,
@@ -87,6 +77,57 @@ namespace EightBitSaxLounge.Composer.Mxl.UnitTests
             Assert.That(actualNoteLocationsStaff2, Is.EqualTo(noteLocationsStaff2));
             Assert.That(actualFinalLocation1, Is.EqualTo(finalLocation));
             Assert.That(actualFinalLocation2, Is.EqualTo(finalLocation));
+        }
+
+        [TestCase("Files/MeasuresStaticAttributes.xml",null, null)]
+        [TestCase("Files/MeasuresDynamicAttributes.xml", new[] {4,4,0,2}, new[] {3,4,1,2})]
+        public void MxlMeasureAttributes_ShouldBeSetCorrectly(
+            string filePath,
+            int[]? initialMeasureAttributesValues,
+            int[]? transitionedMeasureAttributesValues)
+        {
+            // Arrange
+            var xmlParts = XmlTestHelper.CreateXmlElementsFromFileAndRoot(filePath, "part");
+            var expectedMeasuresAttributes = new List<MxlMeasureAttributes>
+            {
+                initialMeasureAttributesValues != null
+                    ? new MxlMeasureAttributes
+                    {
+                        BeatCount = initialMeasureAttributesValues[0],
+                        BeatType = initialMeasureAttributesValues[1],
+                        Key = initialMeasureAttributesValues[2],
+                        Divisions = initialMeasureAttributesValues[3]
+                    }
+                    : _mxlMeasureAttributesTest,
+                transitionedMeasureAttributesValues != null
+                    ? new MxlMeasureAttributes
+                    {
+                        BeatCount = transitionedMeasureAttributesValues[0],
+                        BeatType = transitionedMeasureAttributesValues[1],
+                        Key = transitionedMeasureAttributesValues[2],
+                        Divisions = transitionedMeasureAttributesValues[3]
+                    }
+                    : _mxlMeasureAttributesTest
+            };
+            
+            // Act
+            var mxlPart = new MxlPart(_xmlPartlistPartsTest, xmlParts, 0);
+            var mxlMeasuresAttributes = mxlPart.Measures.Select(measure => new MxlMeasureAttributes
+            {
+                Key = measure.Key,
+                BeatType = measure.BeatType,
+                BeatCount = measure.BeatCount,
+                Divisions = measure.Divisions
+            }).ToList();
+
+            // Assert
+            for (int i = 0; i < expectedMeasuresAttributes.Count; i++)
+            {
+                Assert.That(mxlMeasuresAttributes[i].BeatCount, Is.EqualTo(expectedMeasuresAttributes[i].BeatCount), $"BeatCount does not match at index {i}");
+                Assert.That(mxlMeasuresAttributes[i].BeatType, Is.EqualTo(expectedMeasuresAttributes[i].BeatType), $"BeatType does not match at index {i}");
+                Assert.That(mxlMeasuresAttributes[i].Key, Is.EqualTo(expectedMeasuresAttributes[i].Key), $"Key does not match at index {i}");
+                Assert.That(mxlMeasuresAttributes[i].Divisions, Is.EqualTo(expectedMeasuresAttributes[i].Divisions), $"Divisions does not match at index {i}");
+            }        
         }
     }
 }

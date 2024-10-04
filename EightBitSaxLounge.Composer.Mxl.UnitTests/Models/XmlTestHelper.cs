@@ -11,9 +11,20 @@ public static class XmlTestHelper
         return new XmlElement(xElement);
     }
 
-    public static XmlElements CreateXmlElementsFromFileAndRoot(string filePath, string root)
+    public static XmlElements CreateXmlElementsFromFileAndRoot(string filePath, string childrenName)
     {
-        var xElements = XElement.Load(filePath).Elements(root);
+        var xElements = XElement.Load(filePath).Elements(childrenName);
         return new XmlElements(xElements);
+    }
+
+    public static XmlElements CreatePartlistPartsTest()
+    {
+        var xElementPartListPart = new XElement("score-part",
+            new XElement("part-name", "Piano"),
+            new XElement("id", "1")
+        );
+        var XmlElementsPartListParts = new XmlElements(new List<XElement>{xElementPartListPart});
+        
+        return XmlElementsPartListParts;
     }
 }

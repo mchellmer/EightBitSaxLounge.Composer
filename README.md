@@ -41,7 +41,7 @@ Covert an mxl score.xml in some style to EightBitSaxLounge style. This includes 
         - Parse xml file
         - Convert xml to new style
         - Write new xml file at filepath dir
-- MxlComposition
+- MxlDocument
     - Logic:
       - The entire xml object of score.xml
       - Generally we just want to covert certain parts of the xml and leave the rest alone
@@ -81,7 +81,7 @@ Covert an mxl score.xml in some style to EightBitSaxLounge style. This includes 
         - int beatCount - measure.attributes.time.beats, only when time changes so may only be in measure 1
         - MxlDirection tempoDirection - direction element setting the tempo, only required once per tempo change (descope for now)
         - List<MeasurePart> MxlMeasureParts - list of measure parts, each part contains notes and a direction element
-- MxlMeasurePart
+- MxlMeasurePart - Update: scrap this, just use Measure.Notes
   - Logic:
     - mxl defines music in the order it's written in the xml file, split measures parts with ordered elements
     - once rendered back to xml the order will be direction, note, note, ..., note
@@ -156,9 +156,8 @@ Covert an mxl score.xml in some style to EightBitSaxLounge style. This includes 
         - after beats total reset to location 0, beat 1
     - Properties:
         - int Location - current location in measure
-        - int BeatType - note type in time signature e.g. 4 = quarter note
-        - int BeatCount - beats in measure
-        - int Key - 0 = C, 1 = G, 2 = D, etc.
+        - int LastLocation - the last location e.g. a chord should take the last location
+        - int TransitionDuration - when we transition between chords we need to move Location that far
     - Methods:
         - IncrementLocation(int duration) - increment location by note duration
         - ResetLocation() - reset location to 0, beat 1

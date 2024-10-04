@@ -8,6 +8,7 @@ public class MxlMeasure
     public int Key { get; set; }
     public int BeatType { get; set; }
     public int BeatCount { get; set; }
+    public int Divisions { get; set; }
     public List<MxlNote> Notes { get; set; }
 
     public MxlMeasure(XmlElement xmlMeasure, MxlMeasureAttributes measureAttributes)
@@ -18,6 +19,7 @@ public class MxlMeasure
         Key = measureAttributes.Key;
         BeatType = measureAttributes.BeatType;
         BeatCount = measureAttributes.BeatCount;
+        Divisions = measureAttributes.Divisions;
         Notes = BuildMeasureNotes(xmlMeasure, measureAttributes);
     }
     
@@ -54,7 +56,8 @@ public class MxlMeasure
             }
             else
             {
-                mxlNote.Location = staffMetronome.Location  + staffMetronome.ChordTransitionDuration;
+                staffMetronome.Location += staffMetronome.ChordTransitionDuration;
+                mxlNote.Location = staffMetronome.Location;
                 staffMetronome.LastLocation = staffMetronome.Location;
                 staffMetronome.Location += mxlNote.Duration;
                 staffMetronome.ChordTransitionDuration = 0;

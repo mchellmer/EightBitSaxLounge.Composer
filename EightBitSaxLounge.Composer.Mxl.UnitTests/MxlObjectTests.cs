@@ -129,5 +129,66 @@ namespace EightBitSaxLounge.Composer.Mxl.UnitTests
                 Assert.That(mxlMeasuresAttributes[i].Divisions, Is.EqualTo(expectedMeasuresAttributes[i].Divisions), $"Divisions does not match at index {i}");
             }        
         }
+        
+        [TestCase("Files/MeasureDoubleStaff.xml", 1, 1, 1)]
+        [TestCase("Files/MeasureDoubleStaffChord.xml", 1, 2, 1)]
+        [TestCase("Files/MeasureDoubleStaffChordTransition.xml", 3, 3, 1)]
+        [TestCase("Files/MeasureDoubleStaffChordTransitionComplex.xml", 1, 10, 3)]
+        public void MxlMeasure_ShouldCreateCorrectMeasure(
+            string filePath,
+            int expectedMeasureNumberAttribute,
+            int expectedMeasureNoteCountStaff1,
+            int expectedMeasureNoteCountStaff2)
+        {
+            // Arrange
+            var xmlMeasure = XmlTestHelper.CreateXmlElementFromFile(filePath);
+            
+            // Act
+            var mxlMeasure = new MxlMeasure(xmlMeasure, _mxlMeasureAttributesTest);
+
+            // Assert
+            Assert.That(mxlMeasure.Number, Is.EqualTo(expectedMeasureNumberAttribute));
+            Assert.That(mxlMeasure.Notes.Count(note => note.Staff == 1), Is.EqualTo(expectedMeasureNoteCountStaff1));
+            Assert.That(mxlMeasure.Notes.Count(note => note.Staff == 2), Is.EqualTo(expectedMeasureNoteCountStaff2));
+        }
+        
+        [TestCase("Files/Parts.xml", "Piano", "P1", 2)]
+        public void MxlPart_ShouldCreateCorrectPart(
+            string filePath,
+            string expectedPartName,
+            string expectedPartId,
+            int expectedMeasureCount)
+        {
+            // Arrange
+            var xmlPartlistParts = XmlTestHelper.CreatePartlistPartsFromFile(filePath);
+            var xmlParts = XmlTestHelper.CreateXmlElementsFromFileAndRoot(filePath, "part");
+            
+            // Act
+            var mxlPart = new MxlPart(xmlPartlistParts, xmlParts, 0);
+
+            // Assert
+            Assert.That(mxlPart.Name, Is.EqualTo(expectedPartName));
+            Assert.That(mxlPart.Id, Is.EqualTo(expectedPartId));
+            Assert.That(mxlPart.Measures.Count, Is.EqualTo(expectedMeasureCount));
+        }
+        
+        [TestCase("Files/Score.xml", 1, 2, 10)]
+        public void MxlScore_ShouldCreateCorrectScore(
+            string filePath,
+            int expectedPartCount,
+            int expectedMeasureCount,
+            int expectedNoteCount)
+        {
+            // Arrange
+            var xmlDocument = new XmlDocument(filePath);
+            
+            // Act
+            var mxlScore = new MxlScore(xmlDocument);
+            
+            // Assert
+            Assert.That(mxlScore.Parts.Count, Is.EqualTo(expectedPartCount));
+            Assert.That(mxlScore.Parts.SelectMany(part => part.Measures).Count(), Is.EqualTo(expectedMeasureCount));
+            Assert.That(mxlScore.Parts.SelectMany(part => part.Measures.SelectMany(measure => measure.Notes)).Count(), Is.EqualTo(expectedNoteCount));
+        }
     }
 }

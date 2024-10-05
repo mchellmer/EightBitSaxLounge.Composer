@@ -20,11 +20,17 @@ public static class XmlTestHelper
     public static XmlElements CreatePartlistPartsTest()
     {
         var xElementPartListPart = new XElement("score-part",
-            new XElement("part-name", "Piano"),
-            new XElement("id", "1")
-        );
-        var XmlElementsPartListParts = new XmlElements(new List<XElement>{xElementPartListPart});
+            new XElement("part-name", "Piano"));
+        xElementPartListPart.SetAttributeValue("id", "P1");
+        var xmlElementsPartListParts = new XmlElements(new List<XElement>{xElementPartListPart});
         
-        return XmlElementsPartListParts;
+        return xmlElementsPartListParts;
+    }
+
+    public static XmlElements CreatePartlistPartsFromFile(string filePath)
+    {
+        var scoreDocument = XElement.Load(filePath);
+        var xmlPartlistParts = scoreDocument.Element("part-list")?.Elements("score-part");
+        return new XmlElements(xmlPartlistParts ?? throw new InvalidOperationException());
     }
 }

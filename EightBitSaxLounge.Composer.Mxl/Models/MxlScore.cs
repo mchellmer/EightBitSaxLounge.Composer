@@ -18,7 +18,7 @@ public class MxlScore
 
         var xmlPartlist = new XmlElement(xmlScore, "part-list");
         var xmlPartlistParts = new XmlElements(xmlPartlist, "score-part");
-        var xmlParts = new XmlElements(xmlScore, "parts");
+        var xmlParts = new XmlElements(xmlScore, "part");
         for (int i = 0; i < xmlParts.Elements.Count(); i++)
         {
             var mxlPart = new MxlPart(xmlPartlistParts, xmlParts, i);

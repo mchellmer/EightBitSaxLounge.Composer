@@ -14,11 +14,11 @@ public class MxlPart
     {
         var xmlMeasures = new XmlElements(xmlParts, partLocation, "measure");
         
-        Name = XmlParser.GetValueFromElementListByLocationAndChildElementName(
+        Name = XmlParser.GetValueFromElementListByLocationChildName(
             xmlPartlistParts, 
-            partLocation, 
+            partLocation,
             "part-name");
-        Id = XmlParser.GetValueFromElementListByLocationAndChildElementName(
+        Id = XmlParser.GetValueFromElementListByLocationAndChildAttribute(
             xmlPartlistParts, 
             partLocation, 
             "id");

@@ -5,23 +5,22 @@ namespace EightBitSaxLounge.Composer.Mxl.Models.Xml;
 
 public static class XmlParser
 {
-    public static string GetValueFromElementListByLocationAndChildElementName(
+    public static string GetValueFromElementListByLocationAndChildAttribute(
         XmlElements parentElements, 
         int parentElementindex,
-        string childElementName)
+        string childAttribute)
     {
-        return parentElements.Elements.ElementAt(parentElementindex).Element(childElementName)?.Value ??
+        return parentElements.Elements.ElementAt(parentElementindex).Attribute(childAttribute)?.Value ??
                throw new InvalidOperationException();
     }
-
-    // public static string GetByAttribute(XmlElement element, string elementAttribute)
-    // {
-    //     return element.Element?.Element("attributes")?
-    //     return xmlMeasure.Element?.Element("attributes")?.Element("key")?.Element("fifths")
-    // }
-    public static string? GetValueFromElement(XmlElement element)
+    
+    public static string GetValueFromElementListByLocationChildName(
+        XmlElements parentElements, 
+        int parentElementindex,
+        string childName)
     {
-        return element.Element?.Value;
+        return parentElements.Elements.ElementAt(parentElementindex).Element(childName)?.Value ??
+               throw new InvalidOperationException();
     }
 
     public static string? GetValueFromElementChildByName(XmlElement parentElement, string childName)

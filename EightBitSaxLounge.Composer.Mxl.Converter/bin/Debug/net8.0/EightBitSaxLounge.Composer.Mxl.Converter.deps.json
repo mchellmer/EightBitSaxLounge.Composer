@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "EightBitSaxLounge.Composer.Mxl.Converter/1.0.0": {
+        "dependencies": {
+          "EightBitSaxLounge.Composer.Mxl": "1.0.0"
+        },
+        "runtime": {
+          "EightBitSaxLounge.Composer.Mxl.Converter.dll": {}
+        }
+      },
+      "EightBitSaxLounge.Composer.Mxl/1.0.0": {
+        "runtime": {
+          "EightBitSaxLounge.Composer.Mxl.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EightBitSaxLounge.Composer.Mxl.Converter/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EightBitSaxLounge.Composer.Mxl/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -32,9 +32,16 @@ Covert an mxl score.xml in some style to EightBitSaxLounge style. This includes 
             - Convert logical objects to EightBitSaxLounge style
             - Build EightBitSaxLounge score.xml
             - Write EightBitSaxLounge score.xml
+- Xml dependencies
+    - create xml objects that hold logic for interacting with xml elements
+    - XmlDocument, XmlElement, XmlElements, XmlParser
+    - e.g. an MxlScore is an XmlElement whose Element is an XElement
+    - e.g. MxlScore.Parts is an XmlElements whose Elements are IEnumerable<XElement>
+    - xml package = System.Xml
 - MxlConverter
     - Logic:
       - This should take some score.mxl and convert to a new style
+      - This should take some MxlDocument and convert to XmlDocument
     - Methods:
       - Convert(filepath)
         - Ingest xml file

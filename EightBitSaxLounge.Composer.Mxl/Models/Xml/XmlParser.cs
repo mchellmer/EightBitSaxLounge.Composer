@@ -37,4 +37,9 @@ public static class XmlParser
     {
         return element.Element?.Element(childName) != null;
     }
+
+    public static void SaveXmlDocumentToFile(XmlDocument xmlDocument, string outputFilepath)
+    {
+        xmlDocument.Document.Save(outputFilepath);
+    }
 }

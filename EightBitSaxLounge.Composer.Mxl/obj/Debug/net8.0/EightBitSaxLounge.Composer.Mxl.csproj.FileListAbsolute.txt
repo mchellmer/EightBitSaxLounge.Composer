@@ -1,6 +1,4 @@
-/Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl/bin/Debug/net8.0/EightBitSaxLounge.Composer.Mxl
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl/bin/Debug/net8.0/EightBitSaxLounge.Composer.Mxl.deps.json
-/Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl/bin/Debug/net8.0/EightBitSaxLounge.Composer.Mxl.runtimeconfig.json
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl/bin/Debug/net8.0/EightBitSaxLounge.Composer.Mxl.dll
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl/bin/Debug/net8.0/EightBitSaxLounge.Composer.Mxl.pdb
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl/obj/Debug/net8.0/EightBitSaxLounge.Composer.Mxl.GeneratedMSBuildEditorConfig.editorconfig
@@ -11,5 +9,4 @@
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl/obj/Debug/net8.0/EightBitSaxLounge.Composer.Mxl.dll
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl/obj/Debug/net8.0/refint/EightBitSaxLounge.Composer.Mxl.dll
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl/obj/Debug/net8.0/EightBitSaxLounge.Composer.Mxl.pdb
-/Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl/obj/Debug/net8.0/EightBitSaxLounge.Composer.Mxl.genruntimeconfig.cache
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl/obj/Debug/net8.0/ref/EightBitSaxLounge.Composer.Mxl.dll

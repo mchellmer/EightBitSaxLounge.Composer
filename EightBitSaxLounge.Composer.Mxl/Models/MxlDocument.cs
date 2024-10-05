@@ -6,7 +6,7 @@ namespace EightBitSaxLounge.Composer.Mxl.Models;
 
 public class MxlDocument
 {
-    private XmlDocument Document { get; set; }
+    public XmlDocument Document { get; set; }
     public MxlScore Score { get; set; }
 
     public MxlDocument()

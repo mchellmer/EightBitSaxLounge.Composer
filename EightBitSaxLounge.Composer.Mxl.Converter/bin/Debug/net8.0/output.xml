@@ -165,7 +165,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="244.52" default-y="0">
         <pitch>
-          <step>F</step>
+          <step>D</step>
           <octave>5</octave>
         </pitch>
         <duration>3</duration>
@@ -179,7 +179,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="256.77" default-y="5">
         <chord />
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>5</octave>
         </pitch>
         <duration>3</duration>
@@ -191,8 +191,8 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="256.77" default-y="25">
         <chord />
         <pitch>
-          <step>D</step>
-          <octave>6</octave>
+          <step>B</step>
+          <octave>5</octave>
         </pitch>
         <duration>3</duration>
         <voice>1</voice>
@@ -202,7 +202,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="274.76" default-y="0">
         <pitch>
-          <step>F</step>
+          <step>D</step>
           <octave>5</octave>
         </pitch>
         <duration>3</duration>
@@ -216,7 +216,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="287" default-y="5">
         <chord />
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>5</octave>
         </pitch>
         <duration>3</duration>
@@ -228,8 +228,8 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="287" default-y="25">
         <chord />
         <pitch>
-          <step>D</step>
-          <octave>6</octave>
+          <step>B</step>
+          <octave>5</octave>
         </pitch>
         <duration>3</duration>
         <voice>1</voice>
@@ -239,7 +239,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="305" default-y="0">
         <pitch>
-          <step>F</step>
+          <step>D</step>
           <octave>5</octave>
         </pitch>
         <duration>6</duration>
@@ -256,7 +256,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="317.24" default-y="5">
         <chord />
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>5</octave>
         </pitch>
         <duration>6</duration>
@@ -268,8 +268,8 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="317.24" default-y="25">
         <chord />
         <pitch>
-          <step>D</step>
-          <octave>6</octave>
+          <step>B</step>
+          <octave>5</octave>
         </pitch>
         <duration>6</duration>
         <voice>1</voice>
@@ -289,7 +289,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </backup>
       <note default-x="81.92" default-y="-145">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>2</octave>
         </pitch>
         <duration>3</duration>
@@ -302,7 +302,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="102.49" default-y="-145">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>2</octave>
         </pitch>
         <duration>3</duration>
@@ -324,7 +324,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="143.63" default-y="-145">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>2</octave>
         </pitch>
         <duration>3</duration>
@@ -337,7 +337,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="164.2" default-y="-145">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>2</octave>
         </pitch>
         <duration>6</duration>
@@ -354,7 +354,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="195.06" default-y="-145">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>2</octave>
         </pitch>
         <duration>6</duration>
@@ -371,7 +371,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="225.91" default-y="-145">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>2</octave>
         </pitch>
         <duration>12</duration>
@@ -394,7 +394,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="348.1" default-y="-145">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>2</octave>
         </pitch>
         <duration>2</duration>
@@ -414,7 +414,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="366.09" default-y="-140">
         <pitch>
-          <step>A</step>
+          <step>F</step>
           <octave>2</octave>
         </pitch>
         <duration>2</duration>
@@ -431,7 +431,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="384.09" default-y="-135">
         <pitch>
-          <step>B</step>
+          <step>G</step>
           <octave>2</octave>
         </pitch>
         <duration>2</duration>
@@ -460,7 +460,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="43.85" default-y="-65">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -478,7 +478,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="43.85" default-y="-40">
         <chord />
         <pitch>
-          <step>E</step>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -489,7 +489,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="74.71" default-y="-65">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -507,7 +507,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="74.71" default-y="-40">
         <chord />
         <pitch>
-          <step>E</step>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -518,7 +518,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="105.56" default-y="-65">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -536,7 +536,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="105.56" default-y="-40">
         <chord />
         <pitch>
-          <step>E</step>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -547,7 +547,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="136.42" default-y="-65">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -565,7 +565,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="136.42" default-y="-40">
         <chord />
         <pitch>
-          <step>E</step>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -576,7 +576,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="167.27" default-y="-65">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -594,7 +594,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="167.27" default-y="-40">
         <chord />
         <pitch>
-          <step>E</step>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -605,7 +605,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="198.13" default-y="-65">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -623,7 +623,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="198.13" default-y="-40">
         <chord />
         <pitch>
-          <step>E</step>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -634,7 +634,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="228.98" default-y="-65">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -652,7 +652,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="228.98" default-y="-40">
         <chord />
         <pitch>
-          <step>E</step>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -666,8 +666,8 @@ http://www.NinSheetMusic.org/</credit-words>
       </backup>
       <note default-x="13" default-y="-130">
         <pitch>
-          <step>C</step>
-          <octave>3</octave>
+          <step>A</step>
+          <octave>2</octave>
         </pitch>
         <duration>12</duration>
         <voice>5</voice>
@@ -700,7 +700,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="43.85" default-y="-65">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -718,7 +718,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="43.85" default-y="-40">
         <chord />
         <pitch>
-          <step>E</step>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -729,7 +729,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="74.71" default-y="-65">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -747,7 +747,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="74.71" default-y="-40">
         <chord />
         <pitch>
-          <step>E</step>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -758,7 +758,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="105.56" default-y="-65">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -776,7 +776,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="105.56" default-y="-40">
         <chord />
         <pitch>
-          <step>E</step>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -787,7 +787,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="136.42" default-y="-65">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -805,7 +805,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="136.42" default-y="-40">
         <chord />
         <pitch>
-          <step>E</step>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -816,7 +816,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="167.27" default-y="-65">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -834,7 +834,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="167.27" default-y="-40">
         <chord />
         <pitch>
-          <step>E</step>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -845,7 +845,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="198.13" default-y="-65">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -863,7 +863,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="198.13" default-y="-40">
         <chord />
         <pitch>
-          <step>E</step>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -874,7 +874,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="228.98" default-y="-65">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -892,7 +892,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="228.98" default-y="-40">
         <chord />
         <pitch>
-          <step>E</step>
+          <step>C</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -906,8 +906,8 @@ http://www.NinSheetMusic.org/</credit-words>
       </backup>
       <note default-x="13" default-y="-130">
         <pitch>
-          <step>C</step>
-          <octave>3</octave>
+          <step>A</step>
+          <octave>2</octave>
         </pitch>
         <duration>12</duration>
         <voice>5</voice>
@@ -952,7 +952,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="100.61" default-y="-60">
         <pitch>
-          <step>A</step>
+          <step>F</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -970,7 +970,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="100.61" default-y="-35">
         <chord />
         <pitch>
-          <step>F</step>
+          <step>D</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -981,7 +981,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="141.41" default-y="-60">
         <pitch>
-          <step>A</step>
+          <step>F</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -999,7 +999,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="141.41" default-y="-35">
         <chord />
         <pitch>
-          <step>F</step>
+          <step>D</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -1010,7 +1010,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="182.22" default-y="-60">
         <pitch>
-          <step>A</step>
+          <step>F</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -1028,7 +1028,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="182.22" default-y="-35">
         <chord />
         <pitch>
-          <step>F</step>
+          <step>D</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -1039,7 +1039,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="223.02" default-y="-60">
         <pitch>
-          <step>A</step>
+          <step>F</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -1057,7 +1057,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="223.02" default-y="-35">
         <chord />
         <pitch>
-          <step>F</step>
+          <step>D</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -1068,7 +1068,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="263.83" default-y="-60">
         <pitch>
-          <step>A</step>
+          <step>F</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -1086,7 +1086,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="263.83" default-y="-35">
         <chord />
         <pitch>
-          <step>F</step>
+          <step>D</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -1097,7 +1097,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="304.63" default-y="-60">
         <pitch>
-          <step>A</step>
+          <step>F</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -1115,7 +1115,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="304.63" default-y="-35">
         <chord />
         <pitch>
-          <step>F</step>
+          <step>D</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -1126,7 +1126,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="345.44" default-y="-60">
         <pitch>
-          <step>A</step>
+          <step>F</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -1144,7 +1144,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="345.44" default-y="-35">
         <chord />
         <pitch>
-          <step>F</step>
+          <step>D</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -1158,8 +1158,8 @@ http://www.NinSheetMusic.org/</credit-words>
       </backup>
       <note default-x="59.8" default-y="-125">
         <pitch>
-          <step>D</step>
-          <octave>3</octave>
+          <step>B</step>
+          <octave>2</octave>
         </pitch>
         <duration>12</duration>
         <voice>5</voice>
@@ -1192,7 +1192,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="53.8" default-y="-25">
         <pitch>
-          <step>A</step>
+          <step>F</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -1210,7 +1210,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="53.8" default-y="0">
         <chord />
         <pitch>
-          <step>F</step>
+          <step>D</step>
           <octave>5</octave>
         </pitch>
         <duration>6</duration>
@@ -1221,7 +1221,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="94.61" default-y="-25">
         <pitch>
-          <step>A</step>
+          <step>F</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -1239,7 +1239,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="94.61" default-y="0">
         <chord />
         <pitch>
-          <step>F</step>
+          <step>D</step>
           <octave>5</octave>
         </pitch>
         <duration>6</duration>
@@ -1250,7 +1250,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="135.41" default-y="-25">
         <pitch>
-          <step>A</step>
+          <step>F</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -1268,7 +1268,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="135.41" default-y="5">
         <chord />
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>5</octave>
         </pitch>
         <duration>6</duration>
@@ -1279,7 +1279,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="176.22" default-y="-20">
         <pitch>
-          <step>B</step>
+          <step>G</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -1296,7 +1296,7 @@ http://www.NinSheetMusic.org/</credit-words>
       <note default-x="176.22" default-y="5">
         <chord />
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>5</octave>
         </pitch>
         <duration>6</duration>
@@ -1314,7 +1314,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="257.83" default-y="-30">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>4</octave>
         </pitch>
         <duration>6</duration>
@@ -1340,7 +1340,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="325.84" default-y="-30">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>4</octave>
         </pitch>
         <duration>3</duration>
@@ -1363,7 +1363,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="53.8" default-y="-110">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -1380,7 +1380,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="94.61" default-y="-110">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -1397,7 +1397,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="135.41" default-y="-110">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -1414,7 +1414,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="176.22" default-y="-110">
         <pitch>
-          <step>G</step>
+          <step>E</step>
           <octave>3</octave>
         </pitch>
         <duration>6</duration>
@@ -1446,8 +1446,8 @@ http://www.NinSheetMusic.org/</credit-words>
     <measure number="6" width="242.43">
       <note default-x="18.76" default-y="-25">
         <pitch>
-          <step>A</step>
-          <alter>1</alter>
+          <step>G</step>
+          <alter>0</alter>
           <octave>4</octave>
         </pitch>
         <duration>12</duration>
@@ -1459,8 +1459,8 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="79.96" default-y="-25">
         <pitch>
-          <step>A</step>
-          <alter>-1</alter>
+          <step>G</step>
+          <alter>0</alter>
           <octave>4</octave>
         </pitch>
         <duration>12</duration>
@@ -1472,7 +1472,7 @@ http://www.NinSheetMusic.org/</credit-words>
       </note>
       <note default-x="141.17" default-y="-25">
         <pitch>
-          <step>A</step>
+          <step>F</step>
           <octave>4</octave>
         </pitch>
         <duration>24</duration>

@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-
-namespace EightBitSaxLounge.Composer.Mxl.Models
+namespace EightBitSaxLounge.Composer.Mxl.Models.MusicTheory
 {
     public class ScaleGenerator
     {

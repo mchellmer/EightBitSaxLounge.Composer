@@ -1,7 +1,4 @@
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.UnitTests/bin/Debug/net8.0/CoverletSourceRootsMapping_EightBitSaxLounge.Composer.Mxl.UnitTests
-/Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.UnitTests/bin/Debug/net8.0/EightBitSaxLounge.Composer.Mxl.deps.json
-/Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.UnitTests/bin/Debug/net8.0/EightBitSaxLounge.Composer.Mxl.runtimeconfig.json
-/Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.UnitTests/bin/Debug/net8.0/EightBitSaxLounge.Composer.Mxl
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.UnitTests/bin/Debug/net8.0/NUnit3.TestAdapter.dll
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.UnitTests/bin/Debug/net8.0/NUnit3.TestAdapter.pdb
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.UnitTests/bin/Debug/net8.0/nunit.engine.dll

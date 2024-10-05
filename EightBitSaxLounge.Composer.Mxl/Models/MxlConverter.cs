@@ -1,3 +1,4 @@
+using EightBitSaxLounge.Composer.Mxl.Models.MusicTheory;
 using EightBitSaxLounge.Composer.Mxl.Models.Xml;
 
 namespace EightBitSaxLounge.Composer.Mxl.Models;
@@ -55,6 +56,52 @@ public static class MxlConverter
                         xmlPitch.Element("alter")?.SetValue(scorePitch.Alter);
                         xmlPitch.Element("octave")?.SetValue(scorePitch.Octave);
                     }
+                }
+            }
+        }
+    }
+
+    public static void ConvertMxlNotesToMinor(MxlDocument mxlDocument)
+    {
+        foreach (var part in mxlDocument.Score.Parts)
+        {
+            foreach (var measure in part.Measures)
+            {
+                foreach (var note in measure.Notes)
+                {
+                    var pitch = note.Pitch;
+                    if (pitch == null) continue; // Skip rest notes
+
+                    // Construct the note string (e.g., "C5" or "C#5" or "Cb5")
+                    var noteName = $"{pitch.Step}{(pitch.Alter == 1 ? "#" : pitch.Alter == -1 ? "b" : "")}{pitch.Octave}";
+                    var keyAsFifths = measure.Key; // Assuming MxlMeasure has a KeyAsFifths property
+
+                    // Transpose to relative minor
+                    var transposedNote = NoteConverter.TransposeNoteToRelativeMinor(noteName, keyAsFifths);
+
+                    // Parse the transposed note back into step, alter, and octave
+                    var newStep = transposedNote.Substring(0, transposedNote.Length - 1);
+                    var newOctave = int.Parse(transposedNote[^1].ToString());
+                    var newAlter = 0;
+
+                    if (newStep.Length > 1)
+                    {
+                        if (newStep[1] == '#')
+                        {
+                            newAlter = 1;
+                            newStep = newStep[0].ToString();
+                        }
+                        else if (newStep[1] == 'b')
+                        {
+                            newAlter = -1;
+                            newStep = newStep[0].ToString();
+                        }
+                    }
+
+                    // Update the pitch
+                    pitch.Step = newStep;
+                    pitch.Octave = newOctave;
+                    pitch.Alter = newAlter;
                 }
             }
         }

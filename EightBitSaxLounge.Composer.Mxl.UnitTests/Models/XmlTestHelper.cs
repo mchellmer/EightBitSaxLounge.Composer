@@ -1,4 +1,5 @@
 using System.Xml.Linq;
+using EightBitSaxLounge.Composer.Mxl.Models;
 using EightBitSaxLounge.Composer.Mxl.Models.Xml;
 
 namespace EightBitSaxLounge.Composer.Mxl.UnitTests.Models;
@@ -32,5 +33,16 @@ public static class XmlTestHelper
         var scoreDocument = XElement.Load(filePath);
         var xmlPartlistParts = scoreDocument.Element("part-list")?.Elements("score-part");
         return new XmlElements(xmlPartlistParts ?? throw new InvalidOperationException());
+    }
+    
+    public static MxlMeasureAttributes CreateTestMxlMeasureAttributes()
+    {
+        return new MxlMeasureAttributes
+        {
+            BeatCount = 4,
+            BeatType = 4,
+            Key = 0,
+            Divisions = 1
+        };
     }
 }

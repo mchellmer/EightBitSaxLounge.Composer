@@ -114,3 +114,5 @@
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.UnitTests/bin/Debug/net8.0/Files/MeasuresStaticAttributes.xml
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.UnitTests/bin/Debug/net8.0/Files/Parts.xml
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.UnitTests/bin/Debug/net8.0/Files/Score.xml
+/Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.UnitTests/bin/Debug/net8.0/Files/MeasureChordsC.xml
+/Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.UnitTests/bin/Debug/net8.0/Files/MeasureChordsBm.xml

@@ -18,4 +18,12 @@ public class XmlElement
     {
         Element = parentElement.Element?.Element(childName);
     }
+    public XmlElement(string filePath){
+        Element = XElement.Load(filePath);
+    }
+
+    public XmlElement(XmlElement xmlElementToClone)
+    {
+        Element = xmlElementToClone.Element;
+    }
 }

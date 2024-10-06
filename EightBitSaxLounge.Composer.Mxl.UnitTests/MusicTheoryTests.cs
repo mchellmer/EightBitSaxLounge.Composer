@@ -1,4 +1,7 @@
+using EightBitSaxLounge.Composer.Mxl.Models;
 using EightBitSaxLounge.Composer.Mxl.Models.MusicTheory;
+using EightBitSaxLounge.Composer.Mxl.Models.Xml;
+using EightBitSaxLounge.Composer.Mxl.UnitTests.Models;
 
 namespace EightBitSaxLounge.Composer.Mxl.UnitTests;
 
@@ -15,5 +18,27 @@ public class MusicTheoryTests
     {
         var result = NoteConverter.TransposeNoteToRelativeMinor(note, keyAsFifths, descending);
         Assert.AreEqual(expected, result);
+    }
+
+    [TestCase("Files/MeasureChordsC.xml", new [] { "Am (1)"})]
+    [TestCase("Files/MeasureChordsBm.xml", new [] { "Bm (2)"})]
+    public void DetermineChordsInMeasure_ShouldReturnExpectedResult(string measureFilepath, string[] expectedChords)
+    {
+        // Arrange
+        var xmlMeasure = XmlTestHelper.CreateXmlElementFromFile(measureFilepath);
+        var mxlMeasure = new MxlMeasure(xmlMeasure, XmlTestHelper.CreateTestMxlMeasureAttributes());
+
+        // Act
+        var chords = MeasureAnalyzer.DetermineChordsInMeasure(mxlMeasure);
+        var relativeMinorChordsAnnotated = chords
+            .Select(chord => ChordGenerator.AddChordLocation(chord, mxlMeasure.Key, true))
+            .ToList();
+
+        // Assert
+        Assert.AreEqual(expectedChords.Length, relativeMinorChordsAnnotated.Count);
+        for (var i = 0; i < expectedChords.Length; i++)
+        {
+            Assert.AreEqual(expectedChords[i], relativeMinorChordsAnnotated[i]);
+        }
     }
 }

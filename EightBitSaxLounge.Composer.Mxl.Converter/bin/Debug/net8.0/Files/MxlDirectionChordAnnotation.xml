@@ -1,0 +1,6 @@
+<direction placement="above">
+    <direction-type>
+        <words relative-y="10">Chord Annotation Text</words>
+    </direction-type>
+    <staff>1</staff>
+</direction>

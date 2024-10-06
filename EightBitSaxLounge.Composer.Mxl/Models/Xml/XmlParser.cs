@@ -32,6 +32,42 @@ public static class XmlParser
     {
         return element.Element?.Attribute(attribute)?.Value!;
     }
+    
+    public static void AddChildElementToParentPreceedingSibling(
+        XmlDocument documentToUpdate,
+        XmlElement newChildElement,
+        string parentName,
+        string parentAttributeName,
+        string parentAttributeValue,
+        string siblingName)
+    {
+        var parentElements = documentToUpdate.Document.Descendants(parentName);
+        foreach (var parentElement in parentElements)
+        {
+            if (parentElement.Attribute(parentAttributeName)?.Value == parentAttributeValue)
+            {
+                var siblingElements = parentElement.Elements(siblingName);
+                if (siblingElements.Any())
+                {
+                    siblingElements.First().AddBeforeSelf(newChildElement.Element);
+                }
+                else
+                {
+                    parentElement.Add(newChildElement.Element);
+                }
+                break;
+            }
+        }
+    }
+    
+    public static void UpdateElementValue(XmlElement element, string descendentToUpdate, string newValue)
+    {
+        var descendentElement = element.Element?.Descendants(descendentToUpdate).FirstOrDefault();
+        if (descendentElement != null)
+        {
+            descendentElement.SetValue(newValue);
+        }
+    }
 
     public static bool CheckForChildElement(XmlElement element, string childName)
     {

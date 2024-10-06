@@ -106,4 +106,37 @@ public static class MxlConverter
             }
         }
     }
+
+    public static void AddChordAnnotationsToMeasures(MxlDocument mxlDocument)
+    {
+        var xmlDirectionChordAnnotation = new XmlElement("Files/MxlDirectionChordAnnotation.xml");
+        var scoreParts = mxlDocument.Score.Parts;
+
+        int measureIndex = 0;
+        foreach (var part in scoreParts)
+        {
+            foreach (var mxlMeasure in part.Measures)
+            {
+                // Determine the chord value
+                var chords = MeasureAnalyzer.DetermineChordsInMeasure(mxlMeasure);
+                var chordsString = string.Join(" ",
+                    chords.Select(chord => ChordGenerator.AddChordLocation(chord,
+                        mxlMeasure.Key,
+                        true)));
+
+                XmlParser.UpdateElementValue(xmlDirectionChordAnnotation, "words", chordsString);
+
+                // Insert the new direction element before the first note element
+                XmlParser.AddChildElementToParentPreceedingSibling(
+                    mxlDocument.Document,
+                    xmlDirectionChordAnnotation,
+                    "measure",
+                    "number",
+                    mxlMeasure.Number.ToString(),
+                    "note");
+
+                measureIndex++;
+            }
+        }
+    }
 }

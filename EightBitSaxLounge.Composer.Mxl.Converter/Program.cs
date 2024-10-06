@@ -4,6 +4,7 @@ using EightBitSaxLounge.Composer.Mxl.Models.Xml;
 // Load mxl file as MxlDocument
 var mxlDocument = new MxlDocument();
 MxlConverter.ConvertMxlNotesToMinor(mxlDocument);
+MxlConverter.AddChordAnnotationsToMeasures(mxlDocument);
 
 // Convert MxlDocument to XmlDocument
 var xmlDocument = MxlConverter.ConvertMxlDocumentToXmlDocument(mxlDocument);

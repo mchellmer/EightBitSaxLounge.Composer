@@ -1,3 +1,4 @@
+/Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.Converter/bin/Debug/net8.0/Files/MxlDirectionChordAnnotation.xml
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.Converter/bin/Debug/net8.0/EightBitSaxLounge.Composer.Mxl.Converter
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.Converter/bin/Debug/net8.0/EightBitSaxLounge.Composer.Mxl.Converter.deps.json
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.Converter/bin/Debug/net8.0/EightBitSaxLounge.Composer.Mxl.Converter.runtimeconfig.json
@@ -17,4 +18,3 @@
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.Converter/obj/Debug/net8.0/EightBitSaxLounge.Composer.Mxl.Converter.pdb
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.Converter/obj/Debug/net8.0/EightBitSaxLounge.Composer.Mxl.Converter.genruntimeconfig.cache
 /Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.Converter/obj/Debug/net8.0/ref/EightBitSaxLounge.Composer.Mxl.Converter.dll
-/Users/markhellmer/RiderProjects/EightBitSaxLounge.Composer/EightBitSaxLounge.Composer.Mxl.Converter/bin/Debug/net8.0/Files/MxlDirectionChordAnnotation.xml

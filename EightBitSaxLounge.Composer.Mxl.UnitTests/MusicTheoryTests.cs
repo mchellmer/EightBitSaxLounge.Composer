@@ -1,6 +1,5 @@
 using EightBitSaxLounge.Composer.Mxl.Models;
 using EightBitSaxLounge.Composer.Mxl.Models.MusicTheory;
-using EightBitSaxLounge.Composer.Mxl.Models.Xml;
 using EightBitSaxLounge.Composer.Mxl.UnitTests.Models;
 
 namespace EightBitSaxLounge.Composer.Mxl.UnitTests;
@@ -18,6 +17,27 @@ public class MusicTheoryTests
     {
         var result = NoteConverter.TransposeNoteToRelativeMinor(note, keyAsFifths, descending);
         Assert.AreEqual(expected, result);
+    }
+    
+    [TestCase("Files/NoteA3.xml", 1, "F", 1, 3)]
+    public void ConvertMxlPitchToRelativeMinor_ShouldReturnExpectedResult(
+        string noteFilepath,
+        int keyAsFifths,
+        string expectedStep,
+        int expectedAlter,
+        int expectedOctave)
+    {
+        // Arrange
+        var xmlNote = XmlTestHelper.CreateXmlElementFromFile(noteFilepath);
+        var mxlNote = new MxlNote(xmlNote);
+
+        // Act
+        var result = MxlConverter.ConvertMxlPitchToRelativeMinor(mxlNote.Pitch, keyAsFifths);
+
+        // Assert
+        Assert.AreEqual(expectedStep, result.Step);
+        Assert.AreEqual(expectedAlter, result.Alter);
+        Assert.AreEqual(expectedOctave, result.Octave);
     }
 
     [TestCase("Files/MeasureChordsC.xml", new [] { "Am (1)"})]

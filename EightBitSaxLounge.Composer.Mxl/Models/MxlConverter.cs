@@ -1,3 +1,4 @@
+using System.Xml.Linq;
 using EightBitSaxLounge.Composer.Mxl.Models.MusicTheory;
 using EightBitSaxLounge.Composer.Mxl.Models.Xml;
 
@@ -52,12 +53,26 @@ public static class MxlConverter
                     if (xmlPitch != null)
                     {
                         var scorePitch = scoreNote.Pitch;
-                        xmlPitch.Element("step")?.SetValue(scorePitch.Step);
-                        xmlPitch.Element("alter")?.SetValue(scorePitch.Alter);
-                        xmlPitch.Element("octave")?.SetValue(scorePitch.Octave);
+                        UpdateXmlPitchToMatchScorePitch(xmlPitch, scorePitch);
                     }
                 }
             }
+        }
+    }
+    
+    public static void UpdateXmlPitchToMatchScorePitch(XElement xmlPitch, MxlPitch scorePitch)
+    {
+        xmlPitch.Element("step")?.SetValue(scorePitch.Step);
+        xmlPitch.Element("octave")?.SetValue(scorePitch.Octave);
+        var alterElement = xmlPitch.Element("alter");
+        if (alterElement == null && (scorePitch.Alter == -1 || scorePitch.Alter == 1))
+        {
+            alterElement = new XElement("alter", scorePitch.Alter);
+            xmlPitch.Add(alterElement);
+        }
+        else
+        {
+            alterElement?.SetValue(scorePitch.Alter);
         }
     }
 
@@ -72,39 +87,44 @@ public static class MxlConverter
                     var pitch = note.Pitch;
                     if (pitch == null) continue; // Skip rest notes
 
-                    // Construct the note string (e.g., "C5" or "C#5" or "Cb5")
-                    var noteName = $"{pitch.Step}{(pitch.Alter == 1 ? "#" : pitch.Alter == -1 ? "b" : "")}{pitch.Octave}";
-                    var keyAsFifths = measure.Key; // Assuming MxlMeasure has a KeyAsFifths property
-
-                    // Transpose to relative minor
-                    var transposedNote = NoteConverter.TransposeNoteToRelativeMinor(noteName, keyAsFifths);
-
-                    // Parse the transposed note back into step, alter, and octave
-                    var newStep = transposedNote.Substring(0, transposedNote.Length - 1);
-                    var newOctave = int.Parse(transposedNote[^1].ToString());
-                    var newAlter = 0;
-
-                    if (newStep.Length > 1)
-                    {
-                        if (newStep[1] == '#')
-                        {
-                            newAlter = 1;
-                            newStep = newStep[0].ToString();
-                        }
-                        else if (newStep[1] == 'b')
-                        {
-                            newAlter = -1;
-                            newStep = newStep[0].ToString();
-                        }
-                    }
-
-                    // Update the pitch
-                    pitch.Step = newStep;
-                    pitch.Octave = newOctave;
-                    pitch.Alter = newAlter;
+                    note.Pitch = ConvertMxlPitchToRelativeMinor(pitch, measure.Key);
                 }
             }
         }
+    }
+
+    public static MxlPitch ConvertMxlPitchToRelativeMinor(MxlPitch pitch, int keyAsFifths)
+    {
+        // Construct the note string (e.g., "C5" or "C#5" or "Cb5")
+        var noteName = $"{pitch.Step}{(pitch.Alter == 1 ? "#" : pitch.Alter == -1 ? "b" : "")}{pitch.Octave}";
+
+        // Transpose to relative minor
+        var transposedNote = NoteConverter.TransposeNoteToRelativeMinor(noteName, keyAsFifths);
+
+        // Parse the transposed note back into step, alter, and octave
+        var newStep = transposedNote.Substring(0, transposedNote.Length - 1);
+        var newOctave = int.Parse(transposedNote[^1].ToString());
+        var newAlter = 0;
+
+        if (newStep.Length > 1)
+        {
+            if (newStep[1] == '#')
+            {
+                newAlter = 1;
+                newStep = newStep[0].ToString();
+            }
+            else if (newStep[1] == 'b')
+            {
+                newAlter = -1;
+                newStep = newStep[0].ToString();
+            }
+        }
+        
+        pitch.Step = newStep;
+        pitch.Alter = newAlter;
+        pitch.Octave = newOctave;
+        
+        return pitch;
     }
 
     public static void AddChordAnnotationsToMeasures(MxlDocument mxlDocument)

@@ -1,0 +1,17 @@
+<note default-x="145.94" default-y="-105">
+    <pitch>
+        <step>A</step>
+        <octave>3</octave>
+    </pitch>
+    <duration>2</duration>
+    <voice>5</voice>
+    <type>eighth</type>
+    <stem>down</stem>
+    <staff>2</staff>
+    <beam number="1">begin</beam>
+    <notations>
+        <articulations>
+            <staccato/>
+        </articulations>
+    </notations>
+</note>
